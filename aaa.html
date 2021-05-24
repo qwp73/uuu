@@ -1,0 +1,1955 @@
+<!DOCTYPE html>
+<html style="height:100%; min-height:100">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Person Randomizer</title>
+
+
+	
+<script type="text/javascript">
+
+	function createAttractions() {
+
+		//initialize the document for all 8 possible sims
+
+		document.aspirationpic_1.src = "images/Null.png";
+		document.turnon1_1.src = "images/Null.png";
+		document.turnon2_1.src = "images/Null.png";	
+		document.turnon3_1.src = "images/Null.png";
+
+		document.age_1.src="images/AgeNull.png";
+
+		document.gender_1.src="images/GenderNull.png";
+
+		document.starpic_1.src="images/SmallNull.png";
+		document.glasses_1.src = "images/Null.png";
+
+		document.haircolor_1.src = "images/Null.png";
+		document.eyes_1.src = "images/Null.png";
+		document.skinpic_1.src = "images/Null.png";
+		document.fitness_1.src = "images/Null.png";
+		document.hats_1.src = "images/Null.png";
+		document.getElementById('personality_1').innerHTML = "";
+
+		document.supernatural_1.src = "images/Null.png";
+
+		document.job_1.src = "images/Null.png";
+	
+
+
+		document.getElementById('genetic_text1').innerHTML = "";
+		document.getElementById('visual_text1').innerHTML = "";
+		document.getElementById('ambition_text1').innerHTML = "";
+		document.getElementById('attraction_text1').innerHTML = "";
+		
+		
+		document.aspirationpic_2.src = "images/Null.png";
+		document.turnon1_2.src = "images/Null.png";
+		document.turnon2_2.src = "images/Null.png";	
+		document.turnon3_2.src = "images/Null.png";
+
+
+		document.age_2.src="images/AgeNull.png";
+
+		document.gender_2.src="images/GenderNull.png";
+
+		document.starpic_2.src="images/SmallNull.png";
+		document.haircolor_2.src = "images/Null.png";
+		document.glasses_2.src = "images/Null.png";
+
+		document.haircolor_2.src = "images/Null.png";
+		document.eyes_2.src = "images/Null.png";
+		document.skinpic_2.src = "images/Null.png";
+		document.fitness_2.src = "images/Null.png";
+		document.hats_2.src = "images/Null.png";
+		document.getElementById('personality_2').innerHTML = "";
+
+		document.supernatural_2.src = "images/Null.png";
+
+		document.job_2.src = "images/Null.png";
+
+		document.getElementById('genetic_text2').innerHTML = "";
+		document.getElementById('visual_text2').innerHTML = "";
+		document.getElementById('ambition_text2').innerHTML = "";
+		document.getElementById('attraction_text2').innerHTML = "";
+		
+
+		document.aspirationpic_3.src = "images/Null.png";
+		document.turnon1_3.src = "images/Null.png";
+		document.turnon2_3.src = "images/Null.png";	
+		document.turnon3_3.src = "images/Null.png";
+
+		document.age_3.src="images/AgeNull.png";
+
+		document.gender_3.src="images/GenderNull.png";
+		document.starpic_3.src="images/SmallNull.png";
+		document.haircolor_3.src = "images/Null.png";
+		document.glasses_3.src = "images/Null.png";
+
+		document.haircolor_3.src = "images/Null.png";
+		document.eyes_3.src = "images/Null.png";
+		document.skinpic_3.src = "images/Null.png";
+		document.fitness_3.src = "images/Null.png";
+		document.hats_3.src = "images/Null.png";
+		document.getElementById('personality_3').innerHTML = "";
+
+		document.supernatural_3.src = "images/Null.png";
+
+		document.job_3.src = "images/Null.png";
+
+		document.getElementById('genetic_text3').innerHTML = "";
+		document.getElementById('visual_text3').innerHTML = "";
+		document.getElementById('ambition_text3').innerHTML = "";
+		document.getElementById('attraction_text3').innerHTML = "";
+		
+		
+
+		document.aspirationpic_4.src = "images/Null.png";
+		document.turnon1_4.src = "images/Null.png";
+		document.turnon2_4.src = "images/Null.png";	
+		document.turnon3_4.src = "images/Null.png";
+
+		document.age_4.src="images/AgeNull.png";
+
+		document.gender_4.src="images/GenderNull.png";
+
+		document.starpic_4.src="images/SmallNull.png";
+		document.haircolor_4.src = "images/Null.png";
+		document.glasses_4.src = "images/Null.png";
+
+		document.haircolor_4.src = "images/Null.png";
+		document.eyes_4.src = "images/Null.png";
+		document.skinpic_4.src = "images/Null.png";
+		document.fitness_4.src = "images/Null.png";
+		document.hats_4.src = "images/Null.png";
+		document.getElementById('personality_4').innerHTML = "";
+
+		document.supernatural_4.src = "images/Null.png";
+
+		document.job_4.src = "images/Null.png";
+
+		document.getElementById('genetic_text4').innerHTML = "";
+		document.getElementById('visual_text4').innerHTML = "";
+		document.getElementById('ambition_text4').innerHTML = "";
+		document.getElementById('attraction_text4').innerHTML = "";
+		
+		
+
+		var sims = 0;
+
+		//randomize a set number of sims
+		if (document.getElementById("decide").checked == true) {
+			sims = parseInt(document.getElementById("simnum").value);
+			if (sims > 4) { //prevent stupid user error by allowing max 8 sims
+				sims = 4;
+			}
+			else if (sims < 1) { //prevent stupid user error by allowing min 1 sim
+				sims = 1;
+			}
+		}
+		//randomize also the number of sims to be randomized (1 to 8)
+		else if (document.getElementById("family").checked == true) {
+			sims = Math.floor(Math.random()*8) + 1;}
+
+		//for each sim in the family
+		while (sims >= 1) {
+
+			//initialize everything for one sim
+
+			var simage = "images/AgeNull.png";
+
+			var aspiration = "images/Null.png";
+			var turnon1 = "images/Null.png";
+			var turnon2 = "images/Null.png";
+			var turnon3 = "images/Null.png";
+
+			var gend = "images/GenderNull.png";
+
+			var starsign = "images/Null.png";
+			var personality = "";
+			var hair = "images/Null.png";
+			var eyecolor = "images/Null.png";
+			var fitfat = "images/Null.png";
+			var eyeglasses = "images/Null.png";
+			var hat = "images/Null.png";
+			var supnat = "images/Null.png";
+			var simjob = "images/Null.png";
+
+			var skin = "images/Null.png";
+
+
+			//age first, it's needed later (if not selected, null-value is ok in the comparisons)
+			if (document.sims.agecheck.checked == true) {
+				simage = getAge();}
+
+			//if we're working with the first sim (or the only sim)
+			if (sims == 1) { 
+
+					//if user selection, force adult or elder age
+					if (document.getElementById("adultforce").checked == true) { 
+						while (simage=="images/Age1.png" || simage =="images/Age2.png" || simage=="images/Age3.png") {
+							simage = getAge();}
+					}
+					//if user selection force teen, adult or elder age
+					else if (document.getElementById("teenforce").checked == true) { 
+						while (simage=="images/Age1.png" || simage =="images/Age2.png") {
+							simage = getAge();}
+					}
+
+			}
+
+
+			//if user choice, randomize primary aspiration
+			if (document.sims.aspir.checked == true) {
+	
+				aspiration = getAspiration();
+			}
+
+			//if any EP past uni and user choice, randomize turnons
+			if (document.turnon.checked == true) {
+				turnon1 = getTurnOns();
+				turnon2 = getTurnOns();
+				turnon3 = getTurnOns();	
+			}
+	
+				//Remove duplicates for turnons/offs
+				while (turnon1 == turnon2) {
+					turnon2 = getTurnOns();}
+
+				//at this point, turnon1!=turnon2, so make sure turnon3 is different from both
+				//and you should be fine
+				while ((turnon2 == turnon3) || (turnon1 == turnon3)){
+					turnon3 = getTurnOns();}
+	
+			}
+
+			//if sim is toddler or child
+			if (simage == "images/Age1.png" || simage == "images/Age2.png") {
+
+				//if no user choice, force grow-up aspiration and no turnons for toddlers and kids
+				if (document.sims.prerandomize.checked == false) {
+
+					
+					aspiration = "images/Aspiration0.png";
+					turnon1 = "images/Null.png";
+					turnon2 = "images/Null.png";
+					turnon3 = "images/Null.png";
+				}
+	
+			}
+		
+
+
+			//gender
+			if (document.sims.gendercheck.checked == true) {
+				gend = getGender();}
+
+
+			//if user choice for previously existing sim,
+			//choose the gender indicated by user
+			if (document.sims.existing.checked == true) {
+				if (document.getElementById("male").checked) {
+					gend = "images/Male.png";}
+				else if (document.getElementById("female").checked) {
+					gend = "images/Female.png";}
+			}
+
+
+			//gender preference, must be randomized after gender
+
+				//if sim is child or toddler
+				if (simage == "images/Age1.png" || simage == "images/Age2.png") {
+
+					//if no user choice, force null preference
+				}
+
+			}
+				
+
+		
+			//either personality points or zodiac
+			if (document.sims.personality.checked == true) {
+				if (document.getElementById("personalitypoints").checked == true) {
+					personality += getPersonality();}
+				else	if (document.getElementById("starsign").checked == true) {
+					starsign = getStarsign();}
+			}
+		
+			//hair
+			if (document.sims.hair.checked == true) {
+				hair = getHair();
+				if (document.sims.greyelders.checked == true && simage == "images/Age5.png") {
+					hair = "images/turnon5.png";}
+			}
+
+			//eyes
+			if (document.sims.eyecheck.checked == true) {
+				eyecolor = getEyes();}
+		
+			//skintone
+			if (document.sims.skin.checked == true) {
+				
+				skin = "images/S" + getSkin() + ".png";
+			
+			}
+
+			//hats
+			if (document.sims.hatcheck.checked == true) {
+				hat = getHats();}
+
+			//fitness
+			if (document.sims.fit.checked == true) {
+				fitfat = getFitness();}
+
+			//glasses
+			if (document.sims.glasses.checked == true) {
+				eyeglasses = getGlasses();}
+
+			//supernatural
+			if (document.sims.supernatural.checked == true) {
+				supnat = getSupernatural();
+
+				//if no user choice, force human for kids and toddlers
+				if (simage == "images/Age1.png" || simage == "images/Age2.png") {
+					if (document.sims.prerandomize.checked == false) {
+						supnat = "images/human.png";}
+				}
+			}
+			
+		
+			//job
+			if (document.sims.job.checked == true) {
+				simjob = getJob();
+
+				//if no user choice, force school for teens, kids and toddlers
+				if (simage == "images/Age1.png" || simage == "images/Age2.png" || simage == "images/Age3.png") {
+					if (document.sims.prerandomize.checked == false) {
+						simjob = "images/School.png";}
+				}
+
+			}
+
+			//on each round, see how many sims are left
+			//if n, fill in the document for the nth sim
+			//and finally reduce the counter
+			if (sims ==1) {
+
+				document.aspirationpic_1.src = aspiration;
+				document.turnon1_1.src = turnon1;
+				document.turnon2_1.src = turnon2;
+				document.turnon3_1.src = turnonToTurnoff(turnon3);
+
+				document.age_1.src = simage;
+						
+				document.gender_1.src = gend;
+
+				document.starpic_1.src = starsign;
+				document.getElementById('personality_1').innerHTML = personality;
+				document.haircolor_1.src = hair;
+				document.eyes_1.src = eyecolor;
+				document.fitness_1.src = fitfat;
+				document.glasses_1.src = eyeglasses;
+				document.hats_1.src = hat;
+				document.skinpic_1.src = skin;
+				document.supernatural_1.src = supnat;
+				document.job_1.src = simjob;
+				
+				//set text descriptions
+				
+				pron = getPronoun(getGenderAlt(gend));
+				document.getElementById('genetic_text1').innerHTML = getGeneticText(sims,getAgeAlt(simage),getGenderAlt(gend),pron,getSkinAlt(skin),getHairAlt(hair),getEyeAlt(eyecolor),personality,getZodiacAlt(starsign));
+				document.getElementById('visual_text1').innerHTML = getVisualText(getFitnessAlt(fitfat),getGlassesAlt(eyeglasses),getHatsAlt(hat),getSupernaturalAlt(supnat),pron);
+				document.getElementById('ambition_text1').innerHTML = getAmbitionText(getAspirationAlt(aspiration),getJobAlt(simjob), pron);
+				document.getElementById('attraction_text1').innerHTML = getAttractionText(getTurnonAlt(turnon1),getTurnonAlt(turnon2),getTurnonAlt(turnon3),pron);
+				
+				//set alts and tooltips
+				
+				document.aspirationpic_1.alt = getAspirationAlt(aspiration);
+				document.aspirationpic_1.title = getAspirationAlt(aspiration);
+
+
+				document.turnon1_1.alt = getTurnonAlt(turnon1);
+				document.turnon1_1.title = getTurnonAlt(turnon1);
+				document.turnon2_1.alt = getTurnonAlt(turnon2);
+				document.turnon2_1.title = getTurnonAlt(turnon2);
+				document.turnon3_1.alt = getTurnonAlt(turnon3);
+				document.turnon3_1.title = getTurnonAlt(turnon3);
+
+				document.age_1.alt = getAgeAlt(simage);
+				document.age_1.title = getAgeAlt(simage);
+
+				document.gender_1.alt = getGenderAlt(gend);
+				document.gender_1.title = getGenderAlt(gend);
+
+
+				document.starpic_1.alt = getZodiacAlt(starsign);
+				document.starpic_1.title = getZodiacAlt(starsign);
+
+				document.haircolor_1.alt = getHairAlt(hair);
+				document.haircolor_1.title = getHairAlt(hair);
+
+				document.fitness_1.alt = getFitnessAlt(fitfat);
+				document.fitness_1.title = getFitnessAlt(fitfat);
+
+				document.glasses_1.alt = getGlassesAlt(eyeglasses);
+				document.glasses_1.title = getGlassesAlt(eyeglasses);
+
+				document.hats_1.alt = getHatsAlt(hat);
+				document.hats_1.title = getHatsAlt(hat);
+
+				document.supernatural_1.alt = getSupernaturalAlt(supnat);
+				document.supernatural_1.title = getSupernaturalAlt(supnat);
+
+				document.job_1.alt = getJobAlt(simjob);
+				document.job_1.title = getJobAlt(simjob);
+
+
+				document.skinpic_1.alt = getSkinAlt(skin);
+				document.skinpic_1.title = getSkinAlt(skin);
+
+				document.eyes_1.alt = getEyeAlt(eyecolor);
+				document.eyes_1.title = getEyeAlt(eyecolor);
+
+				
+
+
+
+			}
+
+			else if (sims ==2) {
+
+				document.aspirationpic_2.src = aspiration;
+				document.turnon1_2.src = turnon1;
+				document.turnon2_2.src = turnon2;
+				document.turnon3_2.src = turnonToTurnoff(turnon3);
+
+				document.age_2.src = simage;
+				document.gender_2.src = gend;
+
+
+				document.starpic_2.src = starsign;
+				document.getElementById('personality_2').innerHTML = personality;
+				document.haircolor_2.src = hair;
+				document.eyes_2.src = eyecolor;
+				document.fitness_2.src = fitfat;
+				document.glasses_2.src = eyeglasses;
+				document.hats_2.src = hat;
+				document.skinpic_2.src = skin;
+				document.supernatural_2.src = supnat;
+				document.job_2.src = simjob;
+				
+				//set text descriptions
+				
+				pron = getPronoun(getGenderAlt(gend));
+				document.getElementById('genetic_text2').innerHTML = getGeneticText(sims,getAgeAlt(simage),getGenderAlt(gend),pron,getSkinAlt(skin),getHairAlt(hair),getEyeAlt(eyecolor),personality,getZodiacAlt(starsign));
+				document.getElementById('visual_text2').innerHTML = getVisualText(getFitnessAlt(fitfat),getGlassesAlt(eyeglasses),getHatsAlt(hat),getSupernaturalAlt(supnat),pron);
+				document.getElementById('ambition_text2').innerHTML = getAmbitionText(getAspirationAlt(aspiration),getJobAlt(simjob), pron);
+				document.getElementById('attraction_text2').innerHTML = getAttractionText(getTurnonAlt(turnon1),getTurnonAlt(turnon2),getTurnonAlt(turnon3),pron);
+
+				//set alts and tooltips
+				
+				document.aspirationpic_2.alt = getAspirationAlt(aspiration);
+				document.aspirationpic_2.title = getAspirationAlt(aspiration);
+
+
+				document.turnon1_2.alt = getTurnonAlt(turnon1);
+				document.turnon1_2.title = getTurnonAlt(turnon1);
+				document.turnon2_2.alt = getTurnonAlt(turnon2);
+				document.turnon2_2.title = getTurnonAlt(turnon2);
+				document.turnon3_2.alt = getTurnonAlt(turnon3);
+				document.turnon3_2.title = getTurnonAlt(turnon3);
+
+				document.age_2.alt = getAgeAlt(simage);
+				document.age_2.title = getAgeAlt(simage);
+
+				document.gender_2.alt = getGenderAlt(gend);
+				document.gender_2.title = getGenderAlt(gend);
+
+
+				document.starpic_2.alt = getZodiacAlt(starsign);
+				document.starpic_2.title = getZodiacAlt(starsign);
+
+				document.haircolor_2.alt = getHairAlt(hair);
+				document.haircolor_2.title = getHairAlt(hair);
+
+				document.fitness_2.alt = getFitnessAlt(fitfat);
+				document.fitness_2.title = getFitnessAlt(fitfat);
+
+				document.glasses_2.alt = getGlassesAlt(eyeglasses);
+				document.glasses_2.title = getGlassesAlt(eyeglasses);
+
+				document.hats_2.alt = getHatsAlt(hat);
+				document.hats_2.title = getHatsAlt(hat);
+
+				document.supernatural_2.alt = getSupernaturalAlt(supnat);
+				document.supernatural_2.title = getSupernaturalAlt(supnat);
+
+				document.job_2.alt = getJobAlt(simjob);
+				document.job_2.title = getJobAlt(simjob);
+
+
+				document.skinpic_2.alt = getSkinAlt(skin);
+				document.skinpic_2.title = getSkinAlt(skin);
+
+				document.eyes_2.alt = getEyeAlt(eyecolor);
+				document.eyes_2.title = getEyeAlt(eyecolor);
+
+			}
+
+			else if (sims ==3) {
+
+				document.aspirationpic_3.src = aspiration;
+				document.turnon1_3.src = turnon1;
+				document.turnon2_3.src = turnon2;
+				document.turnon3_3.src = turnonToTurnoff(turnon3);
+
+				document.age_3.src = simage;
+				document.gender_3.src = gend;
+
+
+				document.starpic_3.src = starsign;
+				document.getElementById('personality_3').innerHTML = personality;
+				document.haircolor_3.src = hair;
+				document.eyes_3.src = eyecolor;
+				document.fitness_3.src = fitfat;
+				document.glasses_3.src = eyeglasses;
+				document.hats_3.src = hat;
+				document.skinpic_3.src = skin;
+				document.supernatural_3.src = supnat;
+				document.job_3.src = simjob;
+				
+				//set text descriptions
+				
+				pron = getPronoun(getGenderAlt(gend));
+				document.getElementById('genetic_text3').innerHTML = getGeneticText(sims,getAgeAlt(simage),getGenderAlt(gend),pron,getSkinAlt(skin),getHairAlt(hair),getEyeAlt(eyecolor),personality,getZodiacAlt(starsign));
+				document.getElementById('visual_text3').innerHTML = getVisualText(getFitnessAlt(fitfat),getGlassesAlt(eyeglasses),getHatsAlt(hat),getSupernaturalAlt(supnat),pron);
+				document.getElementById('ambition_text3').innerHTML = getAmbitionText(getAspirationAlt(aspiration),getJobAlt(simjob), pron);
+				document.getElementById('attraction_text3').innerHTML = getAttractionText(getTurnonAlt(turnon1),getTurnonAlt(turnon2),getTurnonAlt(turnon3),pron);
+				
+				//set alts and tooltips
+				
+				document.aspirationpic_3.alt = getAspirationAlt(aspiration);
+				document.aspirationpic_3.title = getAspirationAlt(aspiration);
+
+
+				document.turnon1_3.alt = getTurnonAlt(turnon1);
+				document.turnon1_3.title = getTurnonAlt(turnon1);
+				document.turnon2_3.alt = getTurnonAlt(turnon2);
+				document.turnon2_3.title = getTurnonAlt(turnon2);
+				document.turnon3_3.alt = getTurnonAlt(turnon3);
+				document.turnon3_3.title = getTurnonAlt(turnon3);
+
+				document.age_3.alt = getAgeAlt(simage);
+				document.age_3.title = getAgeAlt(simage);
+
+				document.gender_3.alt = getGenderAlt(gend);
+				document.gender_3.title = getGenderAlt(gend);
+
+
+				document.starpic_3.alt = getZodiacAlt(starsign);
+				document.starpic_3.title = getZodiacAlt(starsign);
+
+				document.haircolor_3.alt = getHairAlt(hair);
+				document.haircolor_3.title = getHairAlt(hair);
+
+				document.fitness_3.alt = getFitnessAlt(fitfat);
+				document.fitness_3.title = getFitnessAlt(fitfat);
+
+				document.glasses_3.alt = getGlassesAlt(eyeglasses);
+				document.glasses_3.title = getGlassesAlt(eyeglasses);
+
+				document.hats_3.alt = getHatsAlt(hat);
+				document.hats_3.title = getHatsAlt(hat);
+
+				document.supernatural_3.alt = getSupernaturalAlt(supnat);
+				document.supernatural_3.title = getSupernaturalAlt(supnat);
+
+				document.job_3.alt = getJobAlt(simjob);
+				document.job_3.title = getJobAlt(simjob);
+
+
+				document.skinpic_3.alt = getSkinAlt(skin);
+				document.skinpic_3.title = getSkinAlt(skin);
+
+				document.eyes_3.alt = getEyeAlt(eyecolor);
+				document.eyes_3.title = getEyeAlt(eyecolor);
+
+
+			}
+
+			else if (sims ==4) {
+
+				document.aspirationpic_4.src = aspiration;
+				document.turnon1_4.src = turnon1;
+				document.turnon2_4.src = turnon2;
+				document.turnon3_4.src = turnonToTurnoff(turnon3);
+
+				document.age_4.src = simage;
+				document.gender_4.src = gend;
+
+
+				document.starpic_4.src = starsign;
+				document.getElementById('personality_4').innerHTML = personality;
+				document.haircolor_4.src = hair;
+				document.eyes_4.src = eyecolor;
+				document.fitness_4.src = fitfat;
+				document.glasses_4.src = eyeglasses;
+				document.hats_4.src = hat;
+				document.skinpic_4.src = skin;
+				document.supernatural_4.src = supnat;
+				document.job_4.src = simjob;
+				
+				//set text descriptions
+				
+				pron = getPronoun(getGenderAlt(gend));
+				document.getElementById('genetic_text4').innerHTML = getGeneticText(sims,getAgeAlt(simage),getGenderAlt(gend),pron,getSkinAlt(skin),getHairAlt(hair),getEyeAlt(eyecolor),personality,getZodiacAlt(starsign));
+				document.getElementById('visual_text4').innerHTML = getVisualText(getFitnessAlt(fitfat),getGlassesAlt(eyeglasses),getHatsAlt(hat),getSupernaturalAlt(supnat),pron);
+				document.getElementById('ambition_text4').innerHTML = getAmbitionText(getAspirationAlt(aspiration),getJobAlt(simjob), pron);
+				document.getElementById('attraction_text4').innerHTML = getAttractionText(getTurnonAlt(turnon1),getTurnonAlt(turnon2),getTurnonAlt(turnon3),pron);
+
+				//set alts and tooltips
+				
+				document.aspirationpic_4.alt = getAspirationAlt(aspiration);
+				document.aspirationpic_4.title = getAspirationAlt(aspiration);
+
+
+				document.turnon1_4.alt = getTurnonAlt(turnon1);
+				document.turnon1_4.title = getTurnonAlt(turnon1);
+				document.turnon2_4.alt = getTurnonAlt(turnon2);
+				document.turnon2_4.title = getTurnonAlt(turnon2);
+				document.turnon3_4.alt = getTurnonAlt(turnon3);
+				document.turnon3_4.title = getTurnonAlt(turnon3);
+
+				document.age_4.alt = getAgeAlt(simage);
+				document.age_4.title = getAgeAlt(simage);
+
+				document.gender_4.alt = getGenderAlt(gend);
+				document.gender_4.title = getGenderAlt(gend);
+
+
+				document.starpic_4.alt = getZodiacAlt(starsign);
+				document.starpic_4.title = getZodiacAlt(starsign);
+
+				document.haircolor_4.alt = getHairAlt(hair);
+				document.haircolor_4.title = getHairAlt(hair);
+
+				document.fitness_4.alt = getFitnessAlt(fitfat);
+				document.fitness_4.title = getFitnessAlt(fitfat);
+
+				document.glasses_4.alt = getGlassesAlt(eyeglasses);
+				document.glasses_4.title = getGlassesAlt(eyeglasses);
+
+				document.hats_4.alt = getHatsAlt(hat);
+				document.hats_4.title = getHatsAlt(hat);
+
+				document.supernatural_4.alt = getSupernaturalAlt(supnat);
+				document.supernatural_4.title = getSupernaturalAlt(supnat);
+
+				document.job_4.alt = getJobAlt(simjob);
+				document.job_4.title = getJobAlt(simjob);
+
+
+				document.skinpic_4.alt = getSkinAlt(skin);
+				document.skinpic_4.title = getSkinAlt(skin);
+
+				document.eyes_4.alt = getEyeAlt(eyecolor);
+				document.eyes_4.title = getEyeAlt(eyecolor);
+
+			}
+
+			sims -= 1;
+
+
+
+
+	//here are the functions
+	
+
+	function getAge() {
+		//five possible ages: toddler, child, teen, adult and elder
+		var agenumber = Math.floor(Math.random()*5) + 1;
+
+		return "images/Age" + agenumber + ".png";
+
+	}
+
+
+	function getGender() {
+		
+		//two genders possible
+		var gendernumber = Math.floor(Math.random()*2) + 1;
+
+		if (gendernumber == 1) {
+			return "images/Male.png";}
+		else if (gendernumber == 2) {
+			return "images/Female.png";}
+	}
+
+
+	function getStarsign() {
+		//12 zodiacs
+		var starnumber = Math.floor(Math.random()*12) + 1;
+
+		return "images/Zodiac" + starnumber.toString() + ".png";
+
+	}
+
+	function getPersonality() {
+		var total = 25; //total 25 personality points can be given in CAS
+
+		//the five traits
+		var neat = 0;
+		var outgoing = 0;
+		var active = 0;
+		var playful = 0;
+		var nice = 0;
+
+		while (total >= 1) {
+			var target = Math.floor(Math.random()*5) + 1 //select a random feature
+
+			//assign to random feature, but only if it's not already full
+			if (target == 1 && neat < 10) {
+				neat += 1;
+				total -= 1;}
+			else if (target == 2 && outgoing < 10) {
+				outgoing += 1;
+				total -= 1;}
+			else if (target == 3 && active < 10) {
+				active += 1;
+				total -= 1;}
+			else if (target == 4 && playful < 10) {
+				playful += 1;
+				total -= 1;}
+			else if (target == 5 && nice < 10) {
+				nice += 1;
+				total -= 1;}
+		}
+
+		result = neat.toString() + "/" + outgoing.toString() + "/" + active.toString() + "/" + playful.toString() + "/" + nice.toString()
+
+		return result;
+
+	}
+
+	
+
+	function getHair() {
+
+		//five haircolors: blond, red, brown and black
+		var hair = Math.floor(Math.random()*4) + 1
+		if (hair == 1) {
+			result = "images/turnon15.png";}
+		else if (hair == 2) {
+			result = "images/turnon16.png";}
+		else if (hair == 3) {
+			result = "images/turnon17.png";}
+		else if (hair == 4) {
+			result = "images/turnon18.png";}
+		return result;
+
+	}
+
+
+	function getEyes() {
+
+		//five eyecolors: light blue, dark blue, grey, brown and green
+		var eyenumber = Math.floor(Math.random()*5) + 1;
+		if (eyenumber == 1) {
+			result = "images/light_blue_eyes.png";}
+		else if (eyenumber == 2) {
+			result = "images/dark_blue_eyes.png";}
+		else if (eyenumber == 3) {
+			result = "images/grey_eyes.png";}
+		else if (eyenumber == 4) {
+			result = "images/brown_eyes.png";}
+		else if (eyenumber == 5) {
+			result = "images/green_eyes.png";}
+
+		return result;
+	}
+
+	function getSkin() {
+		//four skintones
+		var skinnumber = Math.floor(Math.random()*4) + 1;
+
+		return skinnumber;
+
+	}
+
+	function getFitness() {
+
+		//get user percentage for fatness
+		var fatchance = document.getElementById("fattarget").value;
+		
+		//prevent stupid user error by enforcing a number between 0 and 100
+		if (fatchance < 0) {
+			fatchance=0;}
+		else if (fatchance > 100) {
+			fatchance=100;}
+			
+
+		//roll a number between 1 and 100
+		var rand = Math.floor(Math.random()*100) + 1;
+
+		//if rolled number is smaller than user choice, sim is fat
+		if (rand<=fatchance) {
+			return "images/fat.png";}
+		else {
+			return "images/skinny.png";}
+	}
+
+
+	function getHats() {
+
+		//user percentage for hats
+		var chance = document.getElementById("hatstarget").value;		
+
+		var rand = Math.floor(Math.random()*100) + 1;
+		
+		//prevent stupid user error by enforcing a number between 0 and 100
+		if (chance < 0) {
+			chance=0;}
+		else if (chance > 100) {
+			chance=100;}
+
+		//if rolled number is smaller than user choice, sim has a hat
+		if (rand <= chance) {
+			return "images/turnon14.png";}
+		else {
+			return "images/turnoff14.png";}
+	}
+
+	function getGlasses() {
+
+		//user percentage for glasses
+		var chance = document.getElementById("glassestarget").value;
+
+		var rand = Math.floor(Math.random()*100) + 1;
+		
+		//prevent stupid user error by enforcing a number between 0 and 100
+		if (chance < 0) {
+			chance=0;}
+		else if (chance > 100) {
+			chance=100;}
+
+		//if rolled smaller than user choice, sim has glasses
+		if (rand <= chance) {
+			return "images/turnon11.png";}
+		else {
+			return "images/turnoff11.png";}
+		
+
+	}
+
+	function getSupernatural() {
+
+		//make array of supernaturals to select from
+		var supernats = new Array();
+
+		//if Uni and user choice, add zombies
+		if (document.sims.zombie.checked == true) {
+			supernats.push("images/turnon29.png");}
+		if (document.sims.vampire.checked == true) {
+			supernats.push("images/turnon9.png");}
+		if (document.sims.werewolf.checked == true) {
+			supernats.push("images/turnon33.png");}
+		if (document.sims.plantsim.checked == true) {
+			supernats.push("images/turnon32.png");}
+		if (document.sims.witch.checked == true) {
+			supernats.push("images/turnon34.png");}
+
+
+		//user percentage for supernatural
+		var chance = document.getElementById("supernattarget").value;
+
+		var rand = Math.floor(Math.random()*100) + 1
+		
+		//prevent stupid user error by enforcing a number between 0 and 100
+		if (chance < 0) {
+			chance=0;}
+		else if (chance > 100) {
+			chance=100;}
+
+		if (rand <= chance && supernats.length > 0) { //you got a supernatural and have at least one possible choice
+			var rand2 = Math.floor(Math.random()*supernats.length);
+			return supernats[rand2];}
+		else {
+			return "images/human.png";}
+
+
+	}
+
+	function getJob() {
+
+		//make array for jobs to choose from, and add the base game careers
+		var jobs = ["images/Athletic_career.png", "images/Art_career.png", "images/Dance_career.png", "images/Oceanography_career.png", "images/Intelligence_career.png", "images/Architecture_career.png", "images/Entertainment_career.png", "images/Education_career.png", "images/Journalism_career.png", "images/Music_career.png", "images/Adventurer_career.png", "images/Natural_Science_career.png", "images/Paranormal_career.png", "images/Show_Business_career.png","images/Law_career.png", "images/Gamer_career.png", "images/Business_career.png", "images/Criminal_career.png", "images/Culinary_career.png", "images/Law_Enforcement_career.png", "images/Medicine_career.png", "images/Military_career.png", "images/Politics_career.png", "images/Science_career.png", "images/Slacker_career.png"];
+
+		//if Uni and user choice, add uni careers
+
+		//select one from the array, however long it is
+		var jobnumber = Math.floor(Math.random()*jobs.length);
+
+		return jobs[jobnumber];
+
+	}
+
+	function getAspiration() {
+	
+		var aspiration = 0
+
+
+		//see which EPs you have and how many aspirations you have to decide between
+		
+			aspiration = Math.floor(Math.random()*7) + 1}
+	
+		if (aspiration == 1) {
+			return "images/Aspiration1.png";}
+		else if (aspiration == 2) {
+			return "images/Aspiration2.png";}
+		else if (aspiration == 3) {
+			return "images/Aspiration3.png";}
+		else if (aspiration == 4) {
+			return "images/Aspiration4.png";}
+		else if (aspiration == 5) {
+			return "images/Aspiration5.png";}
+		else if (aspiration == 6) {
+			return "images/Aspiration6.png";} //if only rolling until 5, pleasure will not be selected
+		return;
+	
+
+
+	function getTurnOns() {
+		
+		//These are the turnons by EP
+		//"Base": 1-8 & 10-19
+		//NL: 9
+		//FT: 20-28
+		//Uni: 29
+		//BV: 30
+		//OFB: 31
+		//Seasons: 32
+		//Pets: 33
+		//AL: 34
+
+
+		//add "base" turnons, those that are available with NL or higher
+
+		turnonarray = ["images/turnon1.png", "images/turnon29.png", "images/turnon31.png", "images/turnon34.png", "images/turnon33.png", "images/turnon30.png", "images/turnon32.png", "images/turnon24.png", "images/turnon28.png", "images/turnon26.png", "images/turnon27.png", "images/turnon25.png", "images/turnon20.png", "images/turnon22.png", "images/turnon21.png", "images/turnon23.png", "images/turnon9.png","images/turnon2.png", "images/turnon3.png", "images/turnon4.png", "images/turnon5.png", "images/turnon6.png", "images/turnon7.png", "images/turnon8.png", "images/turnon10.png", "images/turnon11.png", "images/turnon12.png", "images/turnon13.png", "images/turnon14.png", "images/turnon15.png", "images/turnon16.png", "images/turnon17.png", "images/turnon18.png", "images/turnon19.png"];
+
+
+		//pick one from the array, however long it is		
+		var turnon = Math.floor(Math.random()*turnonarray.length);
+
+
+		return (turnonarray[turnon]);
+
+	}
+
+	function getAspirationAlt(picture) {
+
+		if (picture == "images/Aspiration0.png") {
+			return "Grow Up";}
+		else if (picture == "images/Aspiration1.png") {
+			return "Family";}
+		else if (picture == "images/Aspiration2.png") {
+			return "Fortune";}
+		else if (picture == "images/Aspiration3.png") {
+			return "Knowledge";}
+		else if (picture == "images/Aspiration4.png") {
+			return "Romance";}
+		else if (picture == "images/Aspiration5.png") {
+			return "Popularity";}
+		else if (picture == "images/Aspiration6.png") {
+			return "Pleasure";}
+		else {
+			return "N/A";}
+
+	}
+
+	function getTurnonAlt(picture) {
+
+		if (picture == "images/turnon1.png" || picture == "images/turnoff1.png") {
+			return "Cologne";}
+		else if (picture == "images/turnon2.png" || picture == "images/turnoff2.png") {
+			return "Stink";}
+		else if (picture == "images/turnon3.png" || picture == "images/turnoff3.png") {
+			return "Fatness";}
+		else if (picture == "images/turnon4.png" || picture == "images/turnoff4.png") {
+			return "Fitness";}
+		else if (picture == "images/turnon5.png" || picture == "images/turnoff5.png") {
+			return "Grey hair";}
+		else if (picture == "images/turnon6.png" || picture == "images/turnoff6.png") {
+			return "Formalwear";}
+		else if (picture == "images/turnon7.png" || picture == "images/turnoff7.png") {
+			return "Swimwear";}
+		else if (picture == "images/turnon8.png" || picture == "images/turnoff8.png") {
+			return "Underwear";}
+		else if (picture == "images/turnon9.png" || picture == "images/turnoff9.png") {
+			return "Vampirism";}
+		else if (picture == "images/turnon10.png" || picture == "images/turnoff10.png") {
+			return "Facial Hair";}
+		else if (picture == "images/turnon11.png" || picture == "images/turnoff11.png") {
+			return "Glasses";}
+		else if (picture == "images/turnon12.png" || picture == "images/turnoff12.png") {
+			return "Makeup";}
+		else if (picture == "images/turnon13.png" || picture == "images/turnoff13.png") {
+			return "Full face makeup";}
+		else if (picture == "images/turnon14.png" || picture == "images/turnoff14.png") {
+			return "Hats";}
+		else if (picture == "images/turnon15.png" || picture == "images/turnoff15.png") {
+			return "Blond hair";}
+		else if (picture == "images/turnon16.png" || picture == "images/turnoff16.png") {
+			return "Red hair";}
+		else if (picture == "images/turnon17.png" || picture == "images/turnoff17.png") {
+			return "Brown hair";}
+		else if (picture == "images/turnon18.png" || picture == "images/turnoff18.png") {
+			return "Black hair";}
+		else if (picture == "images/turnon19.png" || picture == "images/turnoff19.png") {
+			return "Custom hair";}
+		else if (picture == "images/turnon20.png" || picture == "images/turnoff20.png") {
+			return "Hard worker";}
+		else if (picture == "images/turnon21.png" || picture == "images/turnoff21.png") {
+			return "Unemployed";}
+		else if (picture == "images/turnon22.png" || picture == "images/turnoff22.png") {
+			return "Logical";}
+		else if (picture == "images/turnon23.png" || picture == "images/turnoff23.png") {
+			return "Charismatic";}
+		else if (picture == "images/turnon24.png" || picture == "images/turnoff24.png") {
+			return "Great cook";}
+		else if (picture == "images/turnon25.png" || picture == "images/turnoff25.png") {
+			return "Mechanical";}
+		else if (picture == "images/turnon26.png" || picture == "images/turnoff26.png") {
+			return "Artistic";}
+		else if (picture == "images/turnon27.png" || picture == "images/turnoff27.png") {
+			return "Athletic";}
+		else if (picture == "images/turnon28.png" || picture == "images/turnoff28.png") {
+			return "Good at clening";}
+		else if (picture == "images/turnon29.png" || picture == "images/turno29.png") {
+			return "Zombies";}
+		else if (picture == "images/turnon30.png" || picture == "images/turnoff30.png") {
+			return "Jewellery";}
+		else if (picture == "images/turnon31.png" || picture == "images/turnoff31.png") {
+			return "Servos";}
+		else if (picture == "images/turnon32.png" || picture == "images/turnoff32.png") {
+			return "Plantsims";}
+		else if (picture == "images/turnon33.png" || picture == "images/turnoff33.png") {
+			return "Werewolves";}
+		else if (picture == "images/turnon34.png" || picture == "images/turnoff34.png") {
+			return "Witches";}
+		else {
+			return "N/A";}
+
+	}
+	
+	function turnonToTurnoff(filename) {
+		
+		if (filename=="images/turnon1.png"){
+			return "images/turnoff1.png";
+		}
+		if (filename=="images/turnon2.png"){
+			return "images/turnoff2.png";
+		}
+		if (filename=="images/turnon3.png"){
+			return "images/turnoff3.png";
+		}
+		if (filename=="images/turnon4.png"){
+			return "images/turnoff4.png";
+		}
+		if (filename=="images/turnon5.png"){
+			return "images/turnoff5.png";
+		}
+		if (filename=="images/turnon6.png"){
+			return "images/turnoff6.png";
+		}
+		if (filename=="images/turnon7.png"){
+			return "images/turnoff7.png";
+		}
+		if (filename=="images/turnon8.png"){
+			return "images/turnoff8.png";
+		}
+		if (filename=="images/turnon9.png"){
+			return "images/turnoff9.png";
+		}
+		if (filename=="images/turnon10.png"){
+			return "images/turnoff10.png";
+		}
+		if (filename=="images/turnon11.png"){
+			return "images/turnoff11.png";
+		}
+		if (filename=="images/turnon12.png"){
+			return "images/turnoff12.png";
+		}
+		if (filename=="images/turnon13.png"){
+			return "images/turnoff13.png";
+		}
+		if (filename=="images/turnon14.png"){
+			return "images/turnoff14.png";
+		}
+		if (filename=="images/turnon15.png"){
+			return "images/turnoff15.png";
+		}
+		if (filename=="images/turnon16.png"){
+			return "images/turnoff16.png";
+		}
+		if (filename=="images/turnon17.png"){
+			return "images/turnoff17.png";
+		}
+		if (filename=="images/turnon18.png"){
+			return "images/turnoff18.png";
+		}
+		if (filename=="images/turnon19.png"){
+			return "images/turnoff19.png";
+		}
+		if (filename=="images/turnon20.png"){
+			return "images/turnoff20.png";
+		}
+		if (filename=="images/turnon21.png"){
+			return "images/turnoff21.png";
+		}
+		if (filename=="images/turnon22.png"){
+			return "images/turnoff22.png";
+		}
+		if (filename=="images/turnon23.png"){
+			return "images/turnoff23.png";
+		}
+		if (filename=="images/turnon24.png"){
+			return "images/turnoff24.png";
+		}
+		if (filename=="images/turnon25.png"){
+			return "images/turnoff25.png";
+		}
+		if (filename=="images/turnon26.png"){
+			return "images/turnoff26.png";
+		}
+		if (filename=="images/turnon27.png"){
+			return "images/turnoff27.png";
+		}
+		if (filename=="images/turnon28.png"){
+			return "images/turnoff28.png";
+		}
+		if (filename=="images/turnon29.png"){
+			return "images/turnoff29.png";
+		}
+		if (filename=="images/turnon30.png"){
+			return "images/turnoff30.png";
+		}
+		if (filename=="images/turnon31.png"){
+			return "images/turnoff31.png";
+		}
+		if (filename=="images/turnon32.png"){
+			return "images/turnoff32.png";
+		}
+		if (filename=="images/turnon33.png"){
+			return "images/turnoff33.png";
+		}
+		if (filename=="images/turnon34.png"){
+			return "images/turnoff34.png";
+		}
+		if (filename=="images/Null.png") {
+			return "images/Null.png";
+		}
+		alert("here");
+		
+	}
+		
+	function getAgeAlt(picture) {
+		if (picture == "images/Age1.png") {
+			return "Toddler";}
+		else if (picture == "images/Age2.png") {
+			return "Child";}
+		else if (picture == "images/Age3.png") {
+			return "Teen";}
+		else if (picture == "images/Age4.png") {
+			return "Adult";}
+		else if (picture == "images/Age5.png") {
+			return "Elder";}
+		else {
+			return "N/A";}
+	}
+
+	function getGenderAlt(picture) {
+		if (picture == "images/Male.png") {
+			return "Male";}
+		else if (picture == "images/Female.png") {
+			return "Female";}
+		else {
+			return "N/A";}
+	
+	}
+
+	function getZodiacAlt(picture) {
+		if (picture == "images/Zodiac1.png") {
+			return "Capricorn";}
+		else if (picture == "images/Zodiac2.png") {
+			return "Sagittarius";}
+		else if (picture == "images/Zodiac3.png") {
+			return "Libra";}
+		else if (picture == "images/Zodiac4.png") {
+			return "Aquarius";}
+		else if (picture == "images/Zodiac5.png") {
+			return "Aries";}
+		else if (picture == "images/Zodiac6.png") {
+			return "Cancer";}
+		else if (picture == "images/Zodiac7.png") {
+			return "Gemini";}
+		else if (picture == "images/Zodiac8.png") {
+			return "Leo";}
+		else if (picture == "images/Zodiac9.png") {
+			return "Pisces";}
+		else if (picture == "images/Zodiac10.png") {
+			return "Scorpio";}
+		else if (picture == "images/Zodiac11.png") {
+			return "Taurus";}
+		else if (picture == "images/Zodiac12.png") {
+			return "Virgo";}
+		else {
+			return "N/A";}
+	}
+
+	function getHairAlt(picture) {
+
+		return getTurnonAlt(picture);
+
+	}
+
+	function getEyeAlt(picture) {
+
+		if (picture == "images/dark_blue_eyes.png") {
+			return "Dark blue";}
+		else if (picture == "images/light_blue_eyes.png") {
+			return "Light blue";}
+		else if (picture == "images/grey_eyes.png") {
+			return "Grey";}
+		else if (picture == "images/brown_eyes.png") {
+			return "Brown";}
+		if (picture == "images/green_eyes.png") {
+			return "Green";}
+		else {
+			return "N/A";}
+
+	}
+
+	function getSkinAlt(picture) {
+		if (picture == "images/S1.png") {
+			return "White (S1)";}
+		else if (picture == "images/S2.png") {
+			return "Tanned (S2)";}
+		else if (picture == "images/S3.png") {
+			return "Brown (S3)";}
+		else if (picture == "images/S4.png") {
+			return "Dark brown (S4)";}
+		else {
+			return "N/A";}
+
+
+	}
+
+	function getFitnessAlt(picture) {
+		if (picture == "images/skinny.png") {
+			return "Normal";}
+		else if (picture == "images/fat.png") {
+			return "Fat";}
+		else {
+			return "N/A";}
+	}
+
+	function getGlassesAlt(picture) {
+		if (picture == "images/turnon11.png") {
+			return "Glasses";}
+		else if (picture == "images/turnoff11.png") {
+			return "No glasses";}
+		else {
+			return "N/A";}
+
+
+	}
+
+	function getHatsAlt(picture) {
+		if (picture == "images/turnon14.png") {
+			return "Hat";}
+		else if (picture == "images/turnoff14.png") {
+			return "No hat";}
+		else {
+			return "N/A";}
+	}
+
+	function getJobAlt(picture) {
+		if (picture =="images/Adventurer_career.png") {
+			return "Adventurer";}
+		else if (picture =="images/Architecture_career.png") {
+			return "Architecture";}
+		else if (picture =="images/Art_career.png") {
+			return "Artist";}
+		else if (picture =="images/Athletic_career.png") {
+			return "Athletic";}
+		else if (picture =="images/Business_career.png") {
+			return "Business";}
+		else if (picture =="images/Criminal_career.png") {
+			return "Criminal";}
+		else if (picture =="images/Culinary_career.png") {
+			return "Culinary";}
+		else if (picture =="images/Dance_career.png") {
+			return "Dance";}
+		else if (picture =="images/Education_career.png") {
+			return "Education";}
+		else if (picture =="images/Entertainment_career.png") {
+			return "Entertainment";}
+		else if (picture =="images/Gamer_career.png") {
+			return "Gamer";}
+		else if (picture =="images/Intelligence_career.png") {
+			return "Intelligence";}
+		else if (picture =="images/Journalism_career.png") {
+			return "Journalism";}
+		else if (picture =="images/Law_career.png") {
+			return "Law";}
+		else if (picture =="images/Law_Enforcement_career.png") {
+			return "Law Enforcement";}
+		else if (picture =="images/Military_career.png") {
+			return "Military";}
+		else if (picture =="images/Music_career.png") {
+			return "Music";}
+		else if (picture =="images/Natural_Science_career.png") {
+			return "Natural Science";}
+		else if (picture =="images/Oceanography_career.png") {
+			return "Oceanography";}
+		else if (picture =="images/Paranormal_career.png") {
+			return "Paranormal";}
+		else if (picture =="images/Politics_career.png") {
+			return "Politics";}
+		else if (picture =="images/School.png") {
+			return "School";}
+		else if (picture =="images/Science_career.png") {
+			return "Science";}
+		else if (picture =="images/Showbusiness_career.png") {
+			return "Showbusiness";}
+		else if (picture =="images/Slacker_career.png") {
+			return "Slacker";}
+		else {
+			return "N/A";}
+
+	}
+
+	function getHobbyAlt(picture) {
+		if (picture == "images/hobby1.png") {
+			return "Arts and Crafts";}
+		else if (picture == "images/hobby2.png") {
+			return "Film and Literature";}
+		else if (picture == "images/hobby3.png") {
+			return "Fitness";}
+		else if (picture == "images/hobby4.png") {
+			return "Cuisine";}
+		else if (picture == "images/hobby5.png") {
+			return "Games";}
+		else if (picture == "images/hobby6.png") {
+			return "Music and Dance";}
+		else if (picture == "images/hobby7.png") {
+			return "Nature";}
+		else if (picture == "images/hobby8.png") {
+			return "Science";}
+		else if (picture == "images/hobby9.png") {
+			return "Sports";}
+		else if (picture == "images/hobby10.png") {
+			return "Tinkering";}
+		else {
+			return "N/A";}
+
+	}
+
+	function getSupernaturalAlt(picture) {
+		if (picture == "images/turnon29.png") {
+			return "Zombie";}
+		else if (picture == "images/turnon9.png") {
+			return "Vampire";}
+		else if (picture == "images/turnon32.png") {
+			return "Plantsim";}
+		else if (picture == "images/turnon33.png") {
+			return "Werewolf";}
+		else if (picture == "images/turnon34.png") {
+			return "Witch";}
+		else if (picture == "images/human.png") {
+			return "Human";}
+
+		else {
+			return "N/A";}
+
+	}
+	
+	function capitalize(string) {
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
+	
+	function uncapitalize(string) {
+		return string.charAt(0).toLowerCase() + string.slice(1);
+	}
+	
+	function getPronoun(gender) {
+		var pronoun = "";
+		
+		if (gender=="Male") {
+		
+			pronoun = "he";
+		}
+		else if (gender=="Female") {
+			pronoun = "she";
+		}	
+		else { //gender not randomized, unknown
+			pronoun = "he/she";
+		}
+		return pronoun;
+	}
+	
+	function getPossPronoun(pronoun) {
+	
+		var poss = "";
+		
+		if (pronoun == "he") {
+			poss = "his";
+		}
+		else if (pronoun == "she") {
+			poss = "her";
+		}
+		else if (pronoun == "he/she") {
+			poss = "his/her";
+		}
+		return poss;
+	}
+	
+	function getGeneticText(simnumber,age,gender,pronoun,skin,hair,eyes,personality,zodiac) {
+	
+		var text = "";
+	
+		var article = "";
+	
+		if (age!="N/A" || gender!="N/A") {
+		
+			text = "Sim " + simnumber + " is ";
+	
+			if (age == "Toddler" || age == "Child" || age == "Teen") {
+				article = "a";
+			}
+			else if (age == "Adult" || age == "Elder") {
+				article = "an";
+			}
+	
+	
+			if (age!="N/A") {
+				text += " " + article + " " + uncapitalize(age);
+			}
+		
+			if (gender!="N/A") {
+				text += " " + uncapitalize(gender);
+			}
+			
+			if (skin !="N/A") {
+				text += " with " + uncapitalize(skin) + " skin";
+			}
+			text += ". "
+		}
+		else if (skin!="N/A") {
+			text = "Sim " + simnumber + " has " + uncapitalize(skin) + " skin. ";
+		}
+		
+		if (hair!="N/A" || eyes!="N/A") {
+	
+			text += capitalize(pronoun) + " has ";
+
+			if (hair!="N/A") {
+			
+				text += uncapitalize(hair);
+				
+				if (eyes!="N/A") {
+					text += " and ";
+				}
+					
+			}
+			if (eyes!="N/A") {
+				text += uncapitalize(eyes) + " eyes";
+				
+			}
+			text+=". ";
+		}
+	
+		if (personality!="") {
+			text += capitalize(pronoun) + " has the personality " + personality + ".";
+		}
+		else if (zodiac!="N/A") {
+			text += capitalize(pronoun) + " is ";
+			
+			article2="";
+			if (zodiac=="Aquarius" || zodiac=="Aries") {
+				article2="an";
+			}
+			else {
+				article2="a";
+			}
+			
+			text += article2 + " " + zodiac + "."
+		}
+		return text;
+	
+	}
+	
+	function getVisualText(fitness,glasses,hats,supernatural,pronoun) {
+	
+		var text="";
+		if (fitness!="N/A") {
+			text += capitalize(pronoun) + " has a " + uncapitalize(fitness) + " bodyshape. ";
+		}
+		
+		if (glasses!="N/A" || hats!="N/A") {
+			text += capitalize(pronoun);
+			
+			if (glasses!="N/A") {
+				text += " wears " + uncapitalize(glasses);
+				if (hats != "N/A") {
+					text+=" and";
+				}
+			}
+			if (hats!="N/A") {
+				text += " wears ";
+				if (hats=="Hat") {
+					text += "a hat";
+				}
+				else {
+					text += "no hat";
+				}
+			}
+			text += ". "
+		}
+		
+		if (supernatural!="N/A") {
+			text += capitalize(pronoun) + " is a " + uncapitalize(supernatural) + ".";
+		}
+	
+		return text;
+	}
+	
+	function getAmbitionText(aspir1,career,hobby, pronoun) {
+	
+		var text="";
+		text += capitalize(getPossPronoun(pronoun)) + " ";
+		
+		if (aspir1!="N/A") {
+				text += "primary aspiration is " + aspir1;
+				
+				}
+			
+			}
+			
+		
+		
+		if (career!="N/A" || hobby!="N/A") {
+			if (career!="N/A") {
+				text += capitalize(pronoun) + " works in the " + career + " career";
+				if (hobby!="N/A") {
+					text += " and ";
+				}
+			}
+			
+			if (hobby!="N/A") {
+				pron = getPossPronoun(pronoun);
+				if (career=="N/A") {
+					pron = capitalize(getPossPronoun(pronoun));
+				}
+				text += pron + " hobby is " + hobby
+			}
+			text += ". ";
+		
+		}
+		return text;
+	
+	
+	
+	
+		
+		if (to1!="N/A") { //sufficient to test for one, all three tos are randomized together
+			text += capitalize(getPossPronoun(pronoun)) + " turn ons are " + to1 + " and " + to2 + ", and " + getPossPronoun(pronoun) + " turn off is " + to3 + ".";
+		}
+		return text;
+	
+
+</script>
+</head>
+
+
+<body style="height:100%; min-height:100">
+<div id="header" style="width:100%;height:7%;border-width:thin; font-family:sans-serif; background-color:#82B4FF">
+<div id="programname" style="height:100%;width:30%;float:left"><h3>Person Randomizer</h3></div><div id="makers" style="width:30%;float:left"><a></a> <a></a></div><div id="credit" style="width:30%;float:left"> </div>
+</div>
+<div style="clear:both"></div>
+
+<div id="everything" style="height:93%;width:100%; border-width:thin; border-style:solid">
+
+
+
+<div id="options" style="height:100%;width:20%;float:left; font-size:11px; font-family:sans-serif; background-color:#CCCCCC">
+<form name="sims">
+<div id ="general" style="padding:2%">
+<b>Опции</b><br>
+
+<div id="families">
+<input type="text" id="simnum" name="simnum" size="4" value="1"> #sims <input type="radio" name="amount" id="decide" checked> Рандом (1-8): <input type="radio" name="amount" id="family"><br>
+Минимум 1 взрослый или старый: <input type="radio" name="force" id="adultforce" checked> Минимум 1 от подростка до старого: <input type="radio" name="force" id="teenforce"> Все: <input type="radio" name="force" id="noforce">
+</div>
+
+</div>
+<div id="genetic" style="padding:2%">
+<b>Генетические аспекты</b><br>
+<div id="age"><input type="checkbox" name="agecheck" checked> Возраст </div>
+<div id="gender"><input type="checkbox" name="gendercheck" checked> Пол </div>
+<div id="skintone"><input type="checkbox" name="skin" checked> Цвет кожи </div>
+<div id="haircolor1" style="width:40%; float:left"><input type="checkbox" name="hair" checked> Цвет волос </div> <div id="haircolor2" style="width:60%; float:left"><input type="checkbox" name="greyelders"> Серые у старых</div>
+<div id="eyes"><input type="checkbox" name="eyecheck" checked> Цвет глаз </div>
+<div id="personality"><input type="checkbox" name="personality" checked> Личность
+<input type="radio" name="personalityradio" id="starsign" checked> Знак зодиака <input type="radio" name="personalityradio" id="personalitypoints"> Очки </div>
+</div>
+<div id="visual" style="padding:2%">
+<b>Визуальные аспекты</b><br>
+<div id="fitness1" style="width:40%; float:left"><input type="checkbox" name="fit" checked> Фигура</div> <div id="fitness2" style="width:60%; float:left"><input type="text" id="fattarget" name="fattarget" size="4" value="20">% шанс полноты</div>
+<div id="glass1" style="width:40%; float:left"><input type="checkbox" name="glasses" checked> Очки</div> <div id="glass2" style="width:60%; float:left"><input type="text" id="glassestarget" name="glassestarget" size="4" value="20">% шанс наличия очков</div>
+<div id="hats1" style="width:40%; float:left"><input type="checkbox" name="hatcheck" checked> Шляпа</div> <div id="hats2" style="width:60%; float:left"><input type="text" id="hatstarget" name="hatstarget" size="4" value="20">% шанс наличия шляпы</div>
+<div id="supernaturals1" style="width:40%; float:left"><input type="checkbox" name="supernatural"> Раса</div> <div id="supernaturals2" style="width:60%; float:left"><input type="text" id="supernattarget" name="supernattarget" size="4" value="20">% шанс нечеловеческой	расы</div>
+<div id="superpick"><input type="checkbox" name="zombie"><img src="images/zombie_small.png" /><input type="checkbox" name="vampire"><img src="images/vampire_small.png" /><input type="checkbox" name="werewolf"><img src="images/werewolf_small.png" /><input type="checkbox" name="plantsim"><img src="images/plant_small.png" /><input type="checkbox" name="witch"><img src="images/witch_small.png" /></div>
+</div>
+<div id="ambitions" style="padding:2%">
+<b>Аспекты личности</b><br>
+<div id="aspiration">
+<div id="" style="width:40%; float:left"><input type="checkbox" name="aspir" checked> Цель </div><div id="" style="width:60%; float:left"></div>
+</div>
+<div id="career">
+<div id="career1" style="width:40%; float:left"><input type="checkbox" name="job"> Карьера </div><div id="career2" style="width:60%; float:left"></div>
+</div>
+
+
+
+<div id="attractions" style="padding: 4%">
+<b>Аспекты привлекательности</b><br>
+<div id="tos">
+<input type="checkbox" name="turnons" checked>
+</div>
+<div id="genderpref"></div>
+
+<div style="width:50%; float:right"></div>
+
+</div>
+</div>
+
+</form>
+<div style="clear:both"></div>
+<div id="randomize" style="padding:4%">
+<center><INPUT TYPE="image" SRC="images/Generate.png" ONCLICK="createAttractions()"></center>
+</div>
+</div>
+
+
+
+<div id="simstuff" style="height:100%;width:79%;float:left;border-width:thin; font-size:11px; font-family:sans-serif">
+<div style="clear:both"></div>
+
+<div id="sim1" style="height:48.5%;width:24%;float:left;border-width:thin; border-style:solid; margin:0.4%">
+
+<div id="genetic_display1" style="height:25%; width:100%">
+<div id="age1" style="height:70%;width:13%;float:left">
+<center><img name="age_1" src="images/AgeNull.png"/></center>
+</div>
+<div id="gender1" style="height:70%;width:13%;float:left">
+<center><img name="gender_1" src="images/GenderNull.png"/></center>
+</div>
+<div id="skin1" style="height:70%;width:13%;float:left">
+<center><img name="skinpic_1" src="images/Null.png"/></center>
+</div>
+<div id="hair1" style="height:70%;width:20%;float:left">
+<center><img name="haircolor_1" src="images/Null.png"/></center>
+</div>
+<div id="eye1" style="height:70%;width:20%;float:left">
+<center><img name="eyes_1" src="images/Null.png"/></center>
+</div>
+<div id="zodiac_personality1" style="height:70%;width:20%;float:left">
+<div id="zodiac1" style="height:70%"><center><img name="starpic_1" src="images/SmallNull.png"/></center></div>
+<center><div id="personality_1" style="height:30%"></div></center>
+</div>
+<div id="genetic_text1" style="height:30%;width:97%; padding:2%">
+</div>
+</div>
+
+<div id="visual_display1" style="height:23%; width:100%">
+<div id="fitness1" style="height:70%;width:25%;float:left">
+<center><img name="fitness_1" src="images/Null.png"/></center>
+</div>
+<div id="glasses1" style="height:70%;width:25%;float:left">
+<center><img name="glasses_1" src="images/Null.png"/></center>
+</div>
+<div id="hats1" style="height:70%;width:25%;float:left">
+<center><img name="hats_1" src="images/Null.png"/></center>
+</div>
+<div id="supernatural1" style="height:70%;width:25%;float:left">
+<center><img name="supernatural_1" src="images/Null.png"/></center>
+</div>
+<div id="visual_text1" style="height:30%;width:97%; padding:2%">
+</div>
+</div>
+
+<div id="ambition_display1" style="height:29%; width:100%">
+<div id="aspiration1" style="height:60%;width:25%;float:left">
+<center><img name="aspirationpic_1" src="images/Null.png"/></center>
+</div>
+
+<div id="jobhobbyskills1" style="height:60%;width:49%;float:left">
+<div id="job1" style="height:70%;width:50%;float:left">
+<center><img name="job_1" src="images/Null.png"/></center>
+</div>
+<div id="hobby1" style="height:70%;width:50%;float:left">
+<center><img name="hobby_1" src="images/Null.png"/></center>
+</div>
+<div id="ambition_text1" style="height:40%;width:97%; padding:2%">
+</div>
+</div>
+
+<div id="attraction_display1" style="height:23%; width:100%">
+</div>
+<div id="turnon1_1" style="height:65%;width:25%;float:left">
+<center><img name="turnon1_1" src="images/Null.png"/></center>
+</div>
+<div id="turnon2_1" style="height:65%;width:25%;float:left">
+<center><img name="turnon2_1" src="images/Null.png"/></center>
+</div>
+<div id="turnoff1" style="height:65%;width:25%;float:left">
+<center><img name="turnon3_1" src="images/Null.png"/></center>
+</div>
+<div id="attraction_text1" style="height:35%;width:97%; padding:2%">
+</div>
+</div>
+
+</div>
+
+
+<div id="sim2" style="height:48.5%;width:24%;float:left;border-width:thin; border-style:solid; margin:0.4%">
+
+<div id="genetic_display2" style="height:25%; width:100%">
+<div id="age2" style="height:70%;width:13%;float:left">
+<center><img name="age_2" src="images/AgeNull.png"/></center>
+</div>
+<div id="gender2" style="height:70%;width:13%;float:left">
+<center><img name="gender_2" src="images/GenderNull.png"/></center>
+</div>
+<div id="skin2" style="height:70%;width:13%;float:left">
+<center><img name="skinpic_2" src="images/Null.png"/></center>
+</div>
+<div id="hair2" style="height:70%;width:20%;float:left">
+<center><img name="haircolor_2" src="images/Null.png"/></center>
+</div>
+<div id="eye2" style="height:70%;width:20%;float:left">
+<center><img name="eyes_2" src="images/Null.png"/></center>
+</div>
+<div id="zodiac_personality2" style="height:70%;width:20%;float:left">
+<div id="zodiac2" style="height:70%"><center><img name="starpic_2" src="images/SmallNull.png"/></center></div>
+<center><div id="personality_2" style="height:30%"></div></center>
+</div>
+<div id="genetic_text2" style="height:30%;width:97%; padding:2%">
+</div>
+</div>
+
+<div id="visual_display2" style="height:23%; width:100%">
+<div id="fitness2" style="height:70%;width:25%;float:left">
+<center><img name="fitness_2" src="images/Null.png"/></center>
+</div>
+<div id="glasses2" style="height:70%;width:25%;float:left">
+<center><img name="glasses_2" src="images/Null.png"/></center>
+</div>
+<div id="hats2" style="height:70%;width:25%;float:left">
+<center><img name="hats_2" src="images/Null.png"/></center>
+</div>
+<div id="supernatural2" style="height:70%;width:25%;float:left">
+<center><img name="supernatural_2" src="images/Null.png"/></center>
+</div>
+<div id="visual_text2" style="height:30%;width:97%; padding:2%">
+</div>
+</div>
+
+<div id="ambition_display2" style="height:29%; width:100%">
+<div id="aspiration2" style="height:60%;width:25%;float:left">
+<center><img name="aspirationpic_2" src="images/Null.png"/></center>
+</div>
+<div id="jobhobbyskills2" style="height:60%;width:49%;float:left">
+<div id="job2" style="height:70%;width:50%;float:left">
+<center><img name="job_2" src="images/Null.png"/></center>
+</div>
+<div id="hobby2" style="height:70%;width:50%;float:left">
+<center><img name="hobby_2" src="images/Null.png"/></center>
+</div>
+<div id="ambition_text2" style="height:40%;width:97%; padding:2%">
+</div>
+</div>
+
+<div id="attraction_display2" style="height:23%; width:100%">
+</div>
+<div id="turnon1_2" style="height:65%;width:25%;float:left">
+<center><img name="turnon1_2" src="images/Null.png"/></center>
+</div>
+<div id="turnon2_2" style="height:65%;width:25%;float:left">
+<center><img name="turnon2_2" src="images/Null.png"/></center>
+</div>
+<div id="turnoff2" style="height:65%;width:25%;float:left">
+<center><img name="turnon3_2" src="images/Null.png"/></center>
+</div>
+<div id="attraction_text2" style="height:35%;width:97%; padding:2%">
+</div>
+</div>
+
+</div>
+
+
+
+<div id="sim3" style="height:48.5%;width:24%;float:left;border-width:thin; border-style:solid; margin:0.4%">
+
+<div id="genetic_display3" style="height:25%; width:100%">
+<div id="age3" style="height:70%;width:13%;float:left">
+<center><img name="age_3" src="images/AgeNull.png"/></center>
+</div>
+<div id="gender3" style="height:70%;width:13%;float:left">
+<center><img name="gender_3" src="images/GenderNull.png"/></center>
+</div>
+<div id="skin3" style="height:70%;width:13%;float:left">
+<center><img name="skinpic_3" src="images/Null.png"/></center>
+</div>
+<div id="hair3" style="height:70%;width:20%;float:left">
+<center><img name="haircolor_3" src="images/Null.png"/></center>
+</div>
+<div id="eye3" style="height:70%;width:20%;float:left">
+<center><img name="eyes_3" src="images/Null.png"/></center>
+</div>
+<div id="zodiac_personality3" style="height:70%;width:20%;float:left">
+<div id="zodiac3" style="height:70%"><center><img name="starpic_3" src="images/SmallNull.png"/></center></div>
+<center><div id="personality_3" style="height:30%"></div></center>
+</div>
+<div id="genetic_text3" style="height:30%;width:97%; padding:2%">
+</div>
+</div>
+
+<div id="visual_display3" style="height:23%; width:100%">
+<div id="fitness3" style="height:70%;width:25%;float:left">
+<center><img name="fitness_3" src="images/Null.png"/></center>
+</div>
+<div id="glasses3" style="height:70%;width:25%;float:left">
+<center><img name="glasses_3" src="images/Null.png"/></center>
+</div>
+<div id="hats3" style="height:70%;width:25%;float:left">
+<center><img name="hats_3" src="images/Null.png"/></center>
+</div>
+<div id="supernatural3" style="height:70%;width:25%;float:left">
+<center><img name="supernatural_3" src="images/Null.png"/></center>
+</div>
+<div id="visual_text3" style="height:30%;width:97%; padding:2%">
+</div>
+</div>
+
+<div id="ambition_display3" style="height:29%; width:100%">
+<div id="aspiration3" style="height:60%;width:25%;float:left">
+<center><img name="aspirationpic_3" src="images/Null.png"/></center>
+</div>
+<div id="jobhobbyskills3" style="height:60%;width:49%;float:left">
+<div id="job3" style="height:70%;width:50%;float:left">
+<center><img name="job_3" src="images/Null.png"/></center>
+</div>
+<div id="hobby3" style="height:70%;width:50%;float:left">
+<center><img name="hobby_3" src="images/Null.png"/></center>
+</div>
+<div id="ambition_text3" style="height:40%;width:97%; padding:2%">
+</div>
+</div>
+
+<div id="attraction_display3" style="height:23%; width:100%">
+</div>
+<div id="turnon1_3" style="height:65%;width:25%;float:left">
+<center><img name="turnon1_3" src="images/Null.png"/></center>
+</div>
+<div id="turnon2_3" style="height:65%;width:25%;float:left">
+<center><img name="turnon2_3" src="images/Null.png"/></center>
+</div>
+<div id="turnoff3" style="height:65%;width:25%;float:left">
+<center><img name="turnon3_3" src="images/Null.png"/></center>
+</div>
+<div id="attraction_text3" style="height:35%;width:97%; padding:2%">
+</div>
+</div>
+
+</div>
+
+
+
+<div id="sim4" style="height:48.5%;width:24%;float:left;border-width:thin; border-style:solid; margin:0.4%">
+
+<div id="genetic_display4" style="height:25%; width:100%">
+<div id="age4" style="height:70%;width:13%;float:left">
+<center><img name="age_4" src="images/AgeNull.png"/></center>
+</div>
+<div id="gender4" style="height:70%;width:13%;float:left">
+<center><img name="gender_4" src="images/GenderNull.png"/></center>
+</div>
+<div id="skin4" style="height:70%;width:13%;float:left">
+<center><img name="skinpic_4" src="images/Null.png"/></center>
+</div>
+<div id="hair4" style="height:70%;width:20%;float:left">
+<center><img name="haircolor_4" src="images/Null.png"/></center>
+</div>
+<div id="eye4" style="height:70%;width:20%;float:left">
+<center><img name="eyes_4" src="images/Null.png"/></center>
+</div>
+<div id="zodiac_personality4" style="height:70%;width:20%;float:left">
+<div id="zodiac4" style="height:70%"><center><img name="starpic_4" src="images/SmallNull.png"/></center></div>
+<center><div id="personality_4" style="height:30%"></div></center>
+</div>
+<div id="genetic_text4" style="height:30%;width:97%; padding:2%">
+</div>
+</div>
+
+<div id="visual_display4" style="height:23%; width:100%">
+<div id="fitness4" style="height:70%;width:25%;float:left">
+<center><img name="fitness_4" src="images/Null.png"/></center>
+</div>
+<div id="glasses4" style="height:70%;width:25%;float:left">
+<center><img name="glasses_4" src="images/Null.png"/></center>
+</div>
+<div id="hats4" style="height:70%;width:25%;float:left">
+<center><img name="hats_4" src="images/Null.png"/></center>
+</div>
+<div id="supernatural4" style="height:70%;width:25%;float:left">
+<center><img name="supernatural_4" src="images/Null.png"/></center>
+</div>
+<div id="visual_text4" style="height:30%;width:97%; padding:2%">
+</div>
+</div>
+
+<div id="ambition_display4" style="height:29%; width:100%">
+<div id="aspiration4" style="height:60%;width:25%;float:left">
+<center><img name="aspirationpic_4" src="images/Null.png"/></center>
+</div>
+<div id="sec_aspiration4" style="height:60%;width:25%;float:left">
+<center><img name="aspirationpic2_4" src="images/Null.png"/></center>
+</div>
+<div id="jobhobbyskills4" style="height:60%;width:49%;float:left">
+<div id="job4" style="height:70%;width:50%;float:left">
+<center><img name="job_4" src="images/Null.png"/></center>
+</div>
+<div id="hobby4" style="height:70%;width:50%;float:left">
+<center><img name="hobby_4" src="images/Null.png"/></center>
+</div>
+<div id="ambition_text4" style="height:40%;width:97%; padding:2%">
+</div>
+</div>
+
+<div id="attraction_display4" style="height:23%; width:100%">
+</div>
+<div id="turnon1_4" style="height:65%;width:25%;float:left">
+<center><img name="turnon1_4" src="images/Null.png"/></center>
+</div>
+<div id="turnon2_4" style="height:65%;width:25%;float:left">
+<center><img name="turnon2_4" src="images/Null.png"/></center>
+</div>
+<div id="turnoff4" style="height:65%;width:25%;float:left">
+<center><img name="turnon3_4" src="images/Null.png"/></center>
+</div>
+<div id="attraction_text4" style="height:35%;width:97%; padding:2%">
+</div>
+</body>
+</html>
